@@ -34,22 +34,48 @@ public class LinearEquation {
     }
 
     public String equation() {
-        double x = ((double) coord2x) - ((double) coord1x);
-        double y = ((double) coord2y) - ((double) coord1y);
-        String equation = null;
-        if (slope() == 0) {
-            equation = "y = " + yIntercept();
-        } else if (y % x == 0) {
-            equation = "y = " + ((int) y / x) + "x + " + yIntercept();
-        } else if (slope() == 1 || slope() == -1) {
-            if (slope() == 1) {
-                equation = "y = x + " + yIntercept();
-            } else {
-                equation = "y = -x + " + yIntercept();
-            }
-        } else if (x < 0) {
-            equation
+        int x = ( coord2x - coord1x);
+        int y = ( coord2y - coord1y);
+        String slope = "";
+        String yIntercept = "+ " + yIntercept();
+        if (y % x == 0 && y / x != 1 && y / x != -1) {
+            slope = (y / x) + "x";
         }
+        if (x < 0) {
+            y *= -1;
+            x *= -1;
+        }
+        if (y / x == 1) {
+            slope = "x";
+        }
+        if (y / x == -1) {
+            slope = "-x";
+        }
+        if (y / x == 0) {
+            slope = "";
+        }
+        if (yIntercept() == 0) {
+           yIntercept = "";
+        }
+        if (yIntercept() < 0) {
+            yIntercept = " - " + (-1 * yIntercept());
+        }
+        return slope + yIntercept();
+    }
+    String coordinateForX(double x) {
+        double y = slope() * x + yIntercept();
+        roundedToHundredth(y);
+        return "(" + x + ", " + y + ")";
+    }
+    String lineInfo() {
+        String info = "";
+        String coords = "The two points are: (" + coord1x + ", " + coord1y + ") and (" + coord2x + ", " + coord2y + ")";
+        String equation = " The equation of the line between these points is: " + equation();
+        String slope = "The slope of this line is: " + slope();
+        String yIntercept = "The y-intercept of this line is: " + yIntercept();
+        String distance = "The distance between these points is " + distance();
+        info = coords + "\n" + equation + "\n" + slope + "\n" + yIntercept + "\n" + distance;
+        return info;
     }
 
 

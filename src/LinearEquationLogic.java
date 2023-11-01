@@ -18,7 +18,6 @@ public class LinearEquationLogic {
         }
         System.out.println("Thank you for using the slope calculator, goodbye!");
 
-
     }
     public void coords() {
         System.out.print("Enter coordinate 1: ");

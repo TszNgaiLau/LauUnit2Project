@@ -3,5 +3,4 @@ public class LinearEquationRunner {
         LinearEquationLogic begin = new LinearEquationLogic();
         begin.start();
     }
-
 }

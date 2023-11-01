@@ -17,12 +17,10 @@ public class LinearEquationLogic {
             again = scan.nextLine();
         }
         System.out.println("Thank you for using the slope calculator, goodbye!");
-
     }
     public void coords() {
         System.out.print("Enter coordinate 1: ");
         String coord1 = scan.nextLine();
-        scan.nextLine();
         System.out.print("Enter coordinate 2: ");
         String coord2 = scan.nextLine();
 

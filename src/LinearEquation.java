@@ -41,16 +41,16 @@ public class LinearEquation {
         if (x < 0) {
             slope = (y * -1) + "/" + (x * -1) + "x";
         }
-        if (y % x == 0) {
+        if ((double) y % x == 0) {
             slope = (y / x) + "x";
         }
-        if (y / x == 1) {
+        if ((double) y / x == 1) {
             slope = "x";
         }
-        if (y / x == -1) {
+        if ((double) y / x == -1) {
             slope = "-x";
         }
-        if (y / x == 0) {
+        if ((double) y / x == 0) {
             slope = "";
         }
         if (yIntercept() == 0) {

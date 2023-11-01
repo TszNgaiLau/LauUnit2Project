@@ -34,16 +34,15 @@ public class LinearEquation {
     }
 
     public String equation() {
-        int x = ( coord2x - coord1x);
-        int y = ( coord2y - coord1y);
-        String slope = "";
-        String yIntercept = "+ " + yIntercept();
-        if (y % x == 0 && y / x != 1 && y / x != -1) {
-            slope = (y / x) + "x";
-        }
+        int x = (coord2x - coord1x);
+        int y = (coord2y - coord1y);
+        String slope = y + "/" + x + "x";
+        String yIntercept = " + " + yIntercept();
         if (x < 0) {
-            y *= -1;
-            x *= -1;
+            slope = (y * -1) + "/" + (x * -1) + "x";
+        }
+        if (y % x == 0) {
+            slope = (y / x) + "x";
         }
         if (y / x == 1) {
             slope = "x";
@@ -60,7 +59,10 @@ public class LinearEquation {
         if (yIntercept() < 0) {
             yIntercept = " - " + (-1 * yIntercept());
         }
-        return slope + yIntercept();
+        if (coord1y == coord2y) {
+            return "y = " + coord1y;
+        }
+        return "y = " + slope + yIntercept;
     }
     String coordinateForX(double x) {
         double y = slope() * x + yIntercept();
@@ -70,11 +72,11 @@ public class LinearEquation {
     String lineInfo() {
         String info = "";
         String coords = "The two points are: (" + coord1x + ", " + coord1y + ") and (" + coord2x + ", " + coord2y + ")";
-        String equation = " The equation of the line between these points is: " + equation();
+        String equation = "The equation of the line between these points is: " + equation();
         String slope = "The slope of this line is: " + slope();
         String yIntercept = "The y-intercept of this line is: " + yIntercept();
         String distance = "The distance between these points is " + distance();
-        info = coords + "\n" + equation + "\n" + slope + "\n" + yIntercept + "\n" + distance;
+        info = "\n" + coords + "\n" + equation + "\n" + slope + "\n" + yIntercept + "\n" + distance;
         return info;
     }
 

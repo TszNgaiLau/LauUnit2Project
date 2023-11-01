@@ -2,6 +2,7 @@ public class LinearEquation {
     private int coord1y;
     private int coord1x;
     private int coord2y;
+
     private int coord2x;
 
     private double roundedToHundredth(double num) {
